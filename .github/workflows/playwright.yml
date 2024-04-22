@@ -27,12 +27,10 @@ jobs:
           retention-days: 30
       - name: Determine test result
         run: |
-          if [[ $? -eq 0 ]]; then
-            echo "Tests passed"
-            status="success"
+           if [[ $? -eq 0 ]]; then
+            echo "::set-output name=status::success"
           else
-            echo "Tests failed"
-            status="failure"
+            echo "::set-output name=status::failure"
           fi
 
       - name: Set status in developer repository
