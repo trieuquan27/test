@@ -25,3 +25,29 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - name: Send test report to Dev repo
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.DEV_REPO_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const { context, github } = require('@actions/github');
+            const artifactPath = `${process.env.GITHUB_WORKSPACE}/playwright-report`;
+            const artifactContent = fs.readFileSync(artifactPath);
+
+            const repo = process.env.DEV_REPO.split('/');
+            const owner = repo[0];
+            const repoName = repo[1];
+
+            const artifact = await github.actions.createArtifactClient();
+            await artifact.uploadArtifact('playwright-report', artifactContent, artifactPath, { owner, repo: repoName });
+
+            // Leave a comment on the PR with the test result
+            const prNumber = context.payload.pull_request.number;
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            await octokit.rest.issues.createComment({
+              owner: owner,
+              repo: repoName,
+              issue_number: prNumber,
+              body: 'The Playwright tests have been executed. Please check the test report for details.'
+            });
