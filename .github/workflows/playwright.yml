@@ -25,23 +25,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      - name: Determine test result
-        run: |
-           if [[ $? -eq 0 ]]; then
-            echo "::set-output name=status::success"
-          else
-            echo "::set-output name=status::failure"
-          fi
-
-      - name: Set status in developer repository
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.repos.createCommitStatus({
-              owner: 'dev-repo-owner',
-              repo: 'project-dev',
-              sha: process.env.GITHUB_SHA,
-              state: ${{ steps.test_result.outputs.status }},
-              context: 'QA Tests'
-            })
