@@ -1,7 +1,9 @@
 name: Playwright Tests
+
 on:
   repository_dispatch:
-  types: [qa_workflow]
+    types: [qa_workflow]
+
 jobs:
   test:
     timeout-minutes: 60
