@@ -37,4 +37,4 @@ jobs:
         path: playwright-report/
       env:
         GITHUB_TOKEN: ${{ secrets.DEV_REPO_TOKEN }}
-        DEV_REPO: <username>/dev-repository
+        DEV_REPO: trieuquan27/trieuquan27.github.io
