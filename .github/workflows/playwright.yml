@@ -44,6 +44,6 @@ jobs:
               owner: 'dev-repo-owner',
               repo: 'project-dev',
               sha: process.env.GITHUB_SHA,
-              state: '${{ status }}',
+              state: ${{ steps.test_result.outputs.status }},
               context: 'QA Tests'
             })
