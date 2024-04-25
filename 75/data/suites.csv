@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Apr 25 10:19:03 GMT 2024","Thu Apr 25 10:19:03 GMT 2024","156","chromium","","","","","get Text",""
+"passed","Thu Apr 25 10:19:03 GMT 2024","Thu Apr 25 10:19:03 GMT 2024","495","chromium","","","","","has title",""
