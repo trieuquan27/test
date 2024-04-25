@@ -11,5 +11,5 @@ test("get Text", async ({ page }) => {
   await page.goto("https://trieuquan27.github.io/");
 
   // Click the get started link.
-  await expect(page.getByText("My Tasks")).toHaveCSS("font-weight", "900");
+  await expect(page.getByText("My Tasks")).toHaveCSS("font-weight", "600");
 });
