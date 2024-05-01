@@ -10,6 +10,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
+      - name: echo distinct ID ${{ github.event.inputs.distinct_id }}
+        run: echo ${{ github.event.inputs.distinct_id }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
