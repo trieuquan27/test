@@ -1,8 +1,9 @@
 name: Playwright Tests
 
 on:
-  repository_dispatch:
-    types: [qa_workflow]
+  workflow_dispatch:
+    inputs:
+      distinct_id:
 
 jobs:
   test:
