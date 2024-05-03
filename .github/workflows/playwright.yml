@@ -61,7 +61,7 @@ jobs:
       #     PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #     PUBLISH_BRANCH: gh-pages
       #     PUBLISH_DIR: allure-history
-  - name: Setup Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
