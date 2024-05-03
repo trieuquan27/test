@@ -8,7 +8,7 @@ test("has title", async ({ page }) => {
 });
 
 test("get Text", async ({ page }) => {
-  await page.goto("https://trieuquan27.github.io/");
+  await page.goto("https://trieuquan.pages.dev/");
 
   // Click the get started link.
   await expect(page.getByText("My Tasks")).toHaveCSS("font-weight", "900");
