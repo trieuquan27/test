@@ -44,7 +44,8 @@ jobs:
       #     path: gh-pages
   Upload-test-report:
     needs: test
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
+    steps:
       - name: Generate report action
         uses: simple-elf/allure-report-action@master
         if: always()
