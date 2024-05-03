@@ -28,12 +28,12 @@ jobs:
       #     name: playwright-report
       #     path: playwright-report/
       #     retention-days: 30
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-results
-          path: allure-results
-          retention-days: 20
+      # - uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     name: allure-results
+      #     path: allure-results
+      #     retention-days: 20
 
       # - name: Get Allure history
       #   uses: actions/checkout@v2
@@ -69,6 +69,12 @@ jobs:
       id-token: write
       runs-on: ubuntu-latest
     steps:
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results
+          retention-days: 20
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
