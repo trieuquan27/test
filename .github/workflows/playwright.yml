@@ -71,6 +71,11 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: allure-results
+          path: allure-results
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
