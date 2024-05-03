@@ -64,7 +64,7 @@ jobs:
       #     PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #     PUBLISH_BRANCH: gh-pages
       #     PUBLISH_DIR: allure-history
-   Deloy-test-report:
+  Deloy-test-report:
     needs: run-tests
     runs-on: ubuntu-latest
     steps:
