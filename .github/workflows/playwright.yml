@@ -42,7 +42,7 @@ jobs:
       #   with:
       #     ref: gh-pages
       #     path: gh-pages
-  Upload test report:
+  Upload-test-report:
     needs: test
     runs-on: ubuntu-latest  
       - name: Generate report action
