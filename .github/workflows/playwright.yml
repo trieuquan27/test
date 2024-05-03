@@ -28,10 +28,6 @@ jobs:
       #     name: playwright-report
       #     path: playwright-report/
       #     retention-days: 30
-  Upload test report:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -46,7 +42,9 @@ jobs:
       #   with:
       #     ref: gh-pages
       #     path: gh-pages
-
+  Upload test report:
+    needs: test
+    runs-on: ubuntu-latest  
       - name: Generate report action
         uses: simple-elf/allure-report-action@master
         if: always()
